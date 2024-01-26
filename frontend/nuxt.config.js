@@ -21,10 +21,14 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/css/sb-admin-2.css',
+    '@/assets/css/sb-admin-2.min.css',
+    '@/assets/vendor/fontawesome-free/css/all.min.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    "@/plugins/vuelidate.js",
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -38,7 +42,16 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    '@nuxtjs/axios',
   ],
+
+  axios: {
+    baseURL: process.env.VUE_APP_API_URL, // Used as fallback if no runtime config is provided
+  },
+
+  env: {
+    api_url: process.env.VUE_APP_API_URL,
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

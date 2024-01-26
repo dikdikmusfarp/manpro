@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from rest_framework import generics
 from .models import Projects, Tasks, Statuses
-from .serializers import ProjectsSerializer, TasksSerializer, StatusSerializer, SpesificTasksSerializer
+from .serializers import ProjectsSerializer, TasksSerializer, StatusSerializer, SpesificTasksSerializer, AllStatusSerializer
 
 class ProjectsListCreateView(generics.ListCreateAPIView):
     queryset = Projects.objects.all()
@@ -15,7 +15,7 @@ class ProjectsDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 class StatusListView(generics.ListAPIView):
     queryset = Statuses.objects.all()
-    serializer_class = StatusSerializer
+    serializer_class = AllStatusSerializer
 
 class TasksListCreateView(generics.ListCreateAPIView):
     queryset = Tasks.objects.all()
